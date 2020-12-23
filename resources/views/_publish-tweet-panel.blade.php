@@ -14,10 +14,12 @@
                 src="{{ auth()->user()->avatar }}"
                 alt="your avatar"
                 class="rounded-full mr-2"
+                height="40"
+                width="40"
             >
             <button
                 type="submit"
-                class="bg-blue-500 rounded-l shadow px-4 py-2 text-white"
+                class="bg-blue-500 rounded-full shadow px-4 py-2 text-white"
             >
                 Tweet a roo!
             </button>
