@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password','user_id','id'
     ];
 
     /**
@@ -53,12 +53,17 @@ class User extends Authenticatable
 
     public function tweets()
     {
-        return $this->hasMany(Tweet::class);
+        return $this->hasMany(Tweet::class)
+            ->latest();
 
     }
 
     public function getRouteKeyName()
     {
         return 'name';
+    }
+    public function path()
+    {
+        return route("profile", $this->name);
     }
 }
