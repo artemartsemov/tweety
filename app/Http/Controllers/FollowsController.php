@@ -12,4 +12,9 @@ class FollowsController extends Controller
         auth()->user()->toogleFollow($user);
         return back();
     }
+    public function edit(User $user)
+    {
+        $this->authorize('edit', $user);
+        return view('profiles.edit', compact('user'));
+    }
 }

@@ -1,7 +1,7 @@
 <h3 class="font-bold text-xl mb-4">Friends</h3>
 
 <ul>
-    @foreach(auth()->user()->follows as $user)
+    @forelse(auth()->user()->follows as $user)
         <li class="mb-4">
             <div class="flex items-center text-sm">
                 <a href="{{ route('profile', $user->name) }}" class="flex items-center text-sm">
@@ -16,5 +16,7 @@
                 </a>
             </div>
         </li>
-    @endforeach
+    @empty
+        <p>You are not have friends</p>
+    @endforelse
 </ul>
