@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 
 Route::middleware('auth')->group(function (){
-    Route::get('/explore', 'ExploreController@index');
+    Route::get('/explore', 'ExploreController');
 
     Route::get('/tweets', 'TweetController@index')->name('home');
     Route::post('/tweets', 'TweetController@store');

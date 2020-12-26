@@ -2,7 +2,7 @@
 
 <ul>
     @forelse(auth()->user()->follows as $user)
-        <li class="mb-4">
+        <li class="{{$loop->last  ? : "mb-4"}}">
             <div class="flex items-center text-sm">
                 <a href="{{ route('profile', $user->name) }}" class="flex items-center text-sm">
                     <img

@@ -1,11 +1,11 @@
 @component('components.master')
-<div class="container">
-    <div class="row justify-content-center">
+<div class="container mx-auto flex justify-center ">
+    <div class="bg-gray-400 mx-2 my-4 p-8 rounded-2xl">
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Login') }}</div>
 
-                <div class="card-body bg-gray-400 mx-2 my-4 p-2 rounded-sm">
+                <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
