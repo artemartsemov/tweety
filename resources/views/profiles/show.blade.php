@@ -16,12 +16,14 @@
             <p class="small">Joined {{ $user->created_at->diffForHumans() }}</p>
         </div>
         <div class="flex">
-            <a href="" class="rounded-full border border-gray-300 px-4 py-2 text-black text-xs mr-2">Edit Profile</a>
-            <form method="post" action="/profile/{{ $user->name }}/follow">
-                @csrf
+            @can('edit', $user)
+                <a href="{{ $user->path('edit') }}"
+                   class="rounded-full border border-gray-300 px-4 py-2 text-black text-xs mr-2"
+                >Edit Profile
+                </a>
+            @endcan
                 @component("components.follow-form", ['user' => $user])
                 @endcomponent
-            </form>
         </div>
     </div>
         <p class="text-sm text-center mb-6">
