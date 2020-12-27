@@ -49,7 +49,9 @@ class User extends Authenticatable
 
         return Tweet::whereIn('user_id', $friends)
             ->orWhere('user_id', $this->id)
-            ->latest()->paginate(50);
+            ->withLikes()
+            ->latest()
+            ->paginate(50);
     }
 
     public function setPasswordAttribute($value)
